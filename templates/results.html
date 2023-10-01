@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <h3>Essa é a lista de contatos que vamos enviar as mensagens:</h3>
+    <div>
+        {% for item in send_list %}
+        <p> Telefone: {{ item[0] }} Nome: {{ item[1] }}</p>
+        {% endfor %}
+    </div>
+    <h3>Essa é a imagem que vamos enviar as mensagens:</h3>
+    <div>
+        <img src="{{ url_for('upload_file_img', filename=image) }}" alt="Imagem Carregada">
+    </div>
+    
+<body>
+    
+</body>
+</html>
