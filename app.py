@@ -3,7 +3,7 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import openpyxl
 
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = 'static'
 ALLOWED_EXTENSIONS = {'xls','xlsx','png', 'jpg', 'jpeg', 'gif'}
 
 mensagem_armazenada = ''
@@ -64,8 +64,8 @@ def write_msg():
 
 @app.route('/results', methods=['GET','POST'])
 def results():
-    image = request.args.get('image')
-    book = openpyxl.load_workbook('uploads/contatos.xlsx')
+    image = request.args.get('name')
+    book = openpyxl.load_workbook('static/contatos.xlsx')
     contacts = book['Contatos']
     send_list = []
     for rows in contacts.iter_rows(min_row=2):
